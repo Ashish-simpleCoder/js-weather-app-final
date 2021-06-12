@@ -1,6 +1,7 @@
 const fetch_weather_btn = document.querySelector('#search_btn')
 const input = document.querySelector('#search_weather_value')
 
+
 const city_name_displayer = document.querySelector('.city h3')
 const time_displayer = document.querySelector('.city p')
 const feels_like_displayer=document.querySelector('.feels_like')
@@ -9,8 +10,17 @@ const pressure_displayer=document.querySelector('.pressure')
 const visibility_displayer=document.querySelector('.visibility')
 const clouds_displayer=document.querySelector('.clouds')
 const wind_displayer=document.querySelector('.wind')
-
 const curr_temp_displayer = document.querySelector('.curr_temp')
+
+
+const no_internet_displayer=document.querySelector('.no_internet')
+const no_data_found_displayer=document.querySelector('.no_data_found')
+const loaders_displayer=document.querySelector('.loaders')
+
+
+const pre_loader=document.querySelector('.pre_loader')
+
+
 
 const animate_arr=[city_name_displayer,time_displayer,feels_like_displayer,humidity_displayer,pressure_displayer,visibility_displayer,clouds_displayer,wind_displayer]
 function animateElements(){
@@ -24,9 +34,7 @@ function removeElements(){
     }
 }
 
-const no_internet_displayer=document.querySelector('.no_internet')
-const no_data_found_displayer=document.querySelector('.no_data_found')
-const loaders_displayer=document.querySelector('.loaders')
+
 
 fetch_weather_btn.addEventListener('click',()=> fetchCityWeather(input));
 
@@ -73,7 +81,7 @@ function assignInnerHTML(name,visibility,country,sunrise,sunset,main,description
     pressure_displayer.innerHTML="pressure : "+`<span class="f_d">${pressure} m/b</span>`
     visibility_displayer.innerHTML="visibility : "+`<span class="f_d">${visibility}</span>`
     clouds_displayer.innerHTML="clouds : "+`<span class="f_d">${main}</span>`
-    wind_displayer.innerHTML="wind speed : "+`<span class="f_d">${speed} km/h</span>`
+    wind_displayer.innerHTML="wind : "+`<span class="f_d">${speed} km/h</span>`
 
     let hours=new Date().getHours();
     let seconds=new Date().getMinutes();
@@ -86,11 +94,16 @@ function assignInnerHTML(name,visibility,country,sunrise,sunset,main,description
     }else{
         time_displayer.innerHTML=hours+":"+new Date().getMinutes()+" AM";
     }
-
-
 }
 addEventListener('load',()=>{
     input.value='Gujarat';
     fetchCityWeather(input)
     input.value=''
+})
+
+
+// removing the preloader when the contents loads
+addEventListener('load',()=>{
+    document.body.classList.add('body_active')
+    pre_loader.classList.add('pre_loader_disable')
 })

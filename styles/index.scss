@@ -13,7 +13,8 @@ html {
 }
 body{
     background: rgb(255, 221, 255);
-    overflow-x: hidden;
+    // overflow-x: hidden;
+    overflow: hidden;
 }
 #main_heading {
     // border:1px solid red;
@@ -380,3 +381,41 @@ footer{
     display: flex;
 }
 
+.pre_loader{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgb(10, 10, 10);
+    z-index:5;
+    
+    .actual_loader{
+        background:url(../src/img/fav_icon.svg);
+        width:10rem;
+        height: 10rem;
+        background-size:cover;
+        background-position:center;
+        background-repeat: no-repeat;
+        transform-origin: center;
+        animation:animate_preloader 2s linear infinite;
+    @keyframes animate_preloader{
+        from{
+            transform:rotate(0)
+            
+        }to{
+            transform:rotate(360deg);
+        }
+    }
+    }
+}
+.body_active{
+    overflow:auto;
+    overflow-x: hidden;
+}
+.pre_loader_disable{
+display: none;
+}

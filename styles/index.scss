@@ -4,12 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 html {
     font-size: 62.5%;
     color: rgb(14, 13, 13);
     font-family: 'Poppins',sans-serif;
+    scroll-behavior: smooth;
 }
 body{
     background: rgb(255, 221, 255);
@@ -81,6 +81,7 @@ a {
     // display: block;
     height: 50rem;
     // border:1px solid red;
+   
 }
 #hero_section h2{
     position: absolute;
@@ -94,6 +95,11 @@ a {
     text-align: center;
     z-index: 2;
     font-weight:400;
+    line-height: 4rem;
+    @media screen and(max-width:700px){
+        top:30%;
+        width:90%;
+    }
 }
 .img-container {
     height: 50rem;

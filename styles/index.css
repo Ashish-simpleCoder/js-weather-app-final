@@ -15,6 +15,7 @@ html {
 
 body {
   background: #ffddff;
+  overflow-x: hidden;
 }
 
 #main_heading {
@@ -25,6 +26,17 @@ body {
       justify-content: space-around;
   background: #630163;
   padding: 0.5rem 0;
+}
+
+@media screen and (max-width: 700px) {
+  #main_heading {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #main_heading h1 {
+    margin-left: 1rem;
+  }
 }
 
 #main_heading h1 {
@@ -69,6 +81,14 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+@media screen and (max-width: 700px) {
+  #main_heading nav {
+    width: 40%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 
 #main_heading nav li {
@@ -358,23 +378,20 @@ a {
   position: relative;
 }
 
-.other_details:before {
-  content: '';
-  position: absolute;
-  height: 80%;
-  width: 1px;
-  background: #ebd3eb;
-  left: 50%;
-  top: 20%;
-  -webkit-transform: translateY(-10%);
-          transform: translateY(-10%);
-}
-
 .other_details h3 {
   margin: 1rem 0;
   font-size: clamp(1.5rem, 2.2rem, 3vw);
   text-align: left;
   font-weight: 500;
+}
+
+@media screen and (max-width: 400px) {
+  .other_details h3 {
+    font-size: 1.3rem;
+  }
+  .other_details .f_d {
+    font-size: 1rem;
+  }
 }
 
 .f_d {

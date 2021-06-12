@@ -13,6 +13,7 @@ html {
 }
 body{
     background: rgb(255, 221, 255);
+    overflow-x: hidden;
 }
 #main_heading {
     // border:1px solid red;
@@ -20,6 +21,11 @@ body{
     justify-content: space-around;
     background: rgb(99, 1, 99);
     padding: 0.5rem 0;
+    @media screen and(max-width:700px){ 
+        justify-content: space-between;
+        h1{
+            margin-left:1rem;
+        }}
 }
 #main_heading h1 {
     // border:1px solid red;
@@ -48,6 +54,10 @@ a {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    @media screen and(max-width:700px) {
+        width:40%;
+        justify-content: space-around;
+    }
     li {
         list-style: none;
         // border:1px solid red;
@@ -257,16 +267,6 @@ a {
     justify-content: space-between;
     align-items: center;
     position:relative;
-    &:before{
-        content:'';
-        position:absolute;
-        height: 80%;
-        width:1px;
-        background:rgb(235, 211, 235);
-        left:50%;
-        top:20%;
-        transform:translateY(-10%);
-    }
     h3{
         margin:1rem 0;
         font-size: clamp(1.5rem,2.2rem,3vw);
@@ -274,6 +274,10 @@ a {
         font-weight:500;
         // animation: animate 1s ease forwards;
     }
+    @media screen and(max-width:400px){ 
+        h3{font-size:1.3rem;}
+        .f_d{font-size:1rem;}
+        }
 }
 .f_d{
     font-weight:300;

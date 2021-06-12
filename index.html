@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="./src/index.js" defer></script>
+    <title>Weather App</title>
+</head>
+<body>
+
+    <!-- header section -->
+    <header id='main_heading'>
+        <h1>
+            <span class='logo'>
+                <img src="./src/img/weather.svg" alt="weather icon 'Icon made by freepik from flaticon.com'">
+            </span>
+            <span class='head_title'>City Weather</span>
+        </h1>
+        <nav>
+            <!-- <ul> -->
+                <li><a href="#hero_section">Home</a></li>
+                <li><a href="#weather_page">Weather</a></li>
+            <!-- </ul> -->
+        </nav>
+    </header>
+
+    <!-- hero section -->
+    <section id="hero_section">
+        <h2 id="hero_heading">Let's find out the weather of your city</h2>
+        <div class="img-container">
+        </div>
+        <a href='#weather_page'>Search</a>
+    </section>
+
+    <!-- weather searching section -->
+    <section id="weather_page">
+
+        <div class="uper_section">
+            <label for="search_weather">input weather</label>
+            <input type="text" id='search_weather_value' placeholder="type your city">
+            <button id='search_btn' type='submit'><img src="./src/img/search_btn.svg" alt="" height="100%"></button>
+        </div>
+
+
+        <div class="lower_section">
+            <div class="city">
+                <h3>Delhi, In</h3>
+                <p>Time : 2:30 PM</p>
+            </div>
+
+            <div class="details">
+                <div class="temps">
+                        <div class="weather_icon"></div>
+                        <h3 class='curr_temp'></h3>
+                </div>
+                <div class="other_details">
+                    <div class="part-1">
+                        <h3 class="feels_like">feels like : </h3>
+                        <h3 class="humidity">humidity : </h3>
+                        <h3 class="pressure">pressure : </h3>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="visibility">visibility : </h3>
+                        <h3 class="clouds">Clouds :</h3>
+                        <h3 class="wind">wind speed : </h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- loaders while data is being fetched -->
+            <div class="loaders">
+                <div class="c1"></div>
+                <div class="c2"></div>
+            </div>
+
+
+            <!-- if no internet then execute this in javascript  -->
+            <div class="no_internet"><h1>no internet connection, pls connect to the nextwork</h1></div>
+
+            <!-- if data is not found for the city -->
+            <div class="no_data_found"><h1>No data found</h1></div>
+        </div>
+    </section>
+    <footer>
+        <h2>Ashish Prajapati, copyright @2021</h2>
+    </footer>
+</body>
+</html>

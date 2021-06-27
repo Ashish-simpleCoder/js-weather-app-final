@@ -4,17 +4,18 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 html {
   font-size: 62.5%;
   color: #0e0d0d;
   font-family: 'Poppins',sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
   background: #ffddff;
+  overflow: hidden;
 }
 
 #main_heading {
@@ -24,7 +25,18 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background: #630163;
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  #main_heading {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #main_heading h1 {
+    margin-left: 1rem;
+  }
 }
 
 #main_heading h1 {
@@ -45,8 +57,8 @@ body {
 }
 
 .logo img {
-  width: clamp(3rem, 4rem, 5vw);
-  height: clamp(3rem, 4rem, 5vw);
+  width: clamp(3rem, 3rem, 5vw);
+  height: clamp(3rem, 3rem, 5vw);
 }
 
 a {
@@ -69,6 +81,14 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+@media screen and (max-width: 700px) {
+  #main_heading nav {
+    width: 40%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 
 #main_heading nav li {
@@ -98,12 +118,20 @@ a {
   -webkit-transform: translate(-50%, 40%);
           transform: translate(-50%, 40%);
   color: #f5f3f3;
-  font-size: clamp(3.5rem, 4.5rem, 5vw);
+  font-size: clamp(3.5rem, 5rem, 5vw);
   line-height: 100%;
   width: 100%;
   text-align: center;
   z-index: 2;
   font-weight: 400;
+  line-height: 4rem;
+}
+
+@media screen and (max-width: 700px) {
+  #hero_section h2 {
+    top: 30%;
+    width: 90%;
+  }
 }
 
 .img-container {
@@ -118,14 +146,13 @@ a {
 }
 
 #hero_section a {
-  color: black;
   position: absolute;
   top: 70%;
   left: 50%;
   -webkit-transform: translate(-50%, 0%);
           transform: translate(-50%, 0%);
-  width: clamp(12rem, 16rem, 15vw);
-  height: clamp(4rem, 5rem, 4vw);
+  width: clamp(12rem, 14rem, 15vw);
+  height: clamp(4rem, 4.5rem, 4vw);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,12 +164,16 @@ a {
           justify-content: center;
   background: #630163;
   font-size: clamp(2.2rem, 2.5rem, 3vw);
-  color: #fff6ff;
+  font-stretch: wider;
+  color: #f3f0f0;
   border-radius: 0.3rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 #hero_section a:hover {
-  background: #510080;
+  background: #f3f0f0;
+  color: #630163;
 }
 
 #weather_page {
@@ -210,8 +241,8 @@ a {
       -ms-flex: 1;
           flex: 1;
   padding: 0.5rem 0 0.5rem 1rem;
-  -webkit-box-shadow: 0.2rem 0.3rem 1rem rgba(0, 0, 0, 0.5);
-          box-shadow: 0.2rem 0.3rem 1rem rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0.2rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0.2rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   margin-right: 0.5rem;
   border-radius: 0.4rem;
   font-size: clamp(1.7rem, 2.5rem, 3vw);
@@ -230,8 +261,8 @@ a {
   max-width: 60rem;
   margin-bottom: 5rem;
   border-radius: 1rem;
-  -webkit-box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.7), inset 1rem 1rem 3rem white;
-          box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.7), inset 1rem 1rem 3rem white;
+  -webkit-box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.5), inset 1rem 1rem 3rem white;
+          box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.5), inset 1rem 1rem 3rem white;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,7 +309,7 @@ a {
 .city h3 {
   font-size: clamp(2.7rem, 3.2rem, 3vw);
   font-weight: 400;
-  color: #0c0c0c;
+  color: #630163;
   position: relative;
 }
 
@@ -293,6 +324,10 @@ a {
 
 .city p {
   font-size: clamp(1.4rem, 1.6rem, 2vw);
+}
+
+.city p span {
+  color: #630163;
 }
 
 @-webkit-keyframes animate {
@@ -332,6 +367,12 @@ a {
           flex-direction: column;
 }
 
+.temps .curr_temp {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #630163;
+}
+
 .details .temps .weather_icon {
   background: url(../src/img/cloudy.svg);
   height: 15rem;
@@ -358,28 +399,27 @@ a {
   position: relative;
 }
 
-.other_details:before {
-  content: '';
-  position: absolute;
-  height: 80%;
-  width: 1px;
-  background: #ebd3eb;
-  left: 50%;
-  top: 20%;
-  -webkit-transform: translateY(-10%);
-          transform: translateY(-10%);
-}
-
 .other_details h3 {
   margin: 1rem 0;
   font-size: clamp(1.5rem, 2.2rem, 3vw);
   text-align: left;
   font-weight: 500;
+  color: #410141;
+}
+
+@media screen and (max-width: 400px) {
+  .other_details h3 {
+    font-size: 1.3rem;
+  }
+  .other_details .f_d {
+    font-size: 1rem;
+  }
 }
 
 .f_d {
   font-weight: 300;
   font-size: clamp(1.5rem, 2rem, 2vw);
+  color: black;
 }
 
 footer {
@@ -476,5 +516,68 @@ footer h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.pre_loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #0a0a0a;
+  z-index: 5;
+}
+
+.pre_loader .actual_loader {
+  background: url(../src/img/fav_icon.svg);
+  width: 10rem;
+  height: 10rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: animate_preloader 2s linear infinite;
+          animation: animate_preloader 2s linear infinite;
+}
+
+@-webkit-keyframes animate_preloader {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes animate_preloader {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.body_active {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.pre_loader_disable {
+  display: none;
 }
 /*# sourceMappingURL=index.css.map */

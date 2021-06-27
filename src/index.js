@@ -83,18 +83,22 @@ function assignInnerHTML(name,visibility,country,sunrise,sunset,main,description
     clouds_displayer.innerHTML="clouds : "+`<span class="f_d">${main}</span>`
     wind_displayer.innerHTML="wind : "+`<span class="f_d">${speed} km/h</span>`
 
-    let hours=new Date().getHours();
-    let seconds=new Date().getMinutes();
+    let hours=new Date().getHours()
+    let minutes=new Date().getMinutes()
+    if(minutes<10){
+        minutes="0"+minutes
+    }
     if(hours>12){
-        hours="0"+hours-12;
-        if(seconds<10){
-            seconds="0"+seconds
-        }
-        time_displayer.innerHTML=hours+":"+seconds+" PM";
+        hours="0"+hours-12     
+        time_displayer.innerHTML="Time : <span>"+hours+":"+minutes+" PM"
     }else{
-        time_displayer.innerHTML=hours+":"+new Date().getMinutes()+" AM";
+        time_displayer.innerHTML="Time : "+hours+":"+minutes+" AM"
     }
 }
+
+
+
+// displaying default city data
 addEventListener('load',()=>{
     input.value='Gujarat';
     fetchCityWeather(input)
